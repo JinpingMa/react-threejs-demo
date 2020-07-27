@@ -1,24 +1,31 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Link, HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-
+import OrbitControlsPage from './pages/orbit-controls'
 function App() {
+    const navData = [{
+        path: '/2.1',
+        name: '2.1'
+    }]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <section>
+            <Router>
+                <ul className="">
+                    {navData.map(item => (
+                        <li>
+                            <Link to={item.path}>{item.name}</Link>
+                        </li>
+                    ))}
+                </ul>
+                <Switch>
+                    <Route exact path="/2.1">
+                        <OrbitControlsPage />
+                    </Route>
+                </Switch>
+            </Router>
+        </section>
     </div>
   );
 }
