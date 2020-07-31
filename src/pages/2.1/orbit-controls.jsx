@@ -144,7 +144,7 @@ const OrbitControlsPage =() => {
     return (
         <div
             id= "canvas"
-            style={{ height: '100vh',background:'#888' }}
+            style={{ height: '100%',background:'#b9d3ff' }}
             ref={canvasRef}
         />
     );
